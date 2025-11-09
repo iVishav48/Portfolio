@@ -41,7 +41,7 @@ export default function About() {
           className="mb-16 text-center"
         >
           <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
-            <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-slate-300 to-gray-400 bg-clip-text text-transparent">
               About Me
             </span>
           </h2>
@@ -80,11 +80,11 @@ export default function About() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 font-semibold text-white transition-all hover:shadow-lg hover:shadow-blue-500/50"
+              className="group relative mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-slate-700 to-gray-800 px-6 py-3 font-semibold text-white transition-all hover:shadow-lg hover:shadow-slate-500/50"
             >
               <Download className="h-5 w-5" />
               Resume
-              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 opacity-0 transition-opacity group-hover:opacity-100" />
+              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-gray-700 to-slate-600 opacity-0 transition-opacity group-hover:opacity-100" />
             </motion.a>
           </motion.div>
 
@@ -104,7 +104,7 @@ export default function About() {
                   transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
                   className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:border-blue-500/50 hover:bg-blue-500/10"
                 >
-                  <div className="mb-4 inline-flex rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-3">
+                  <div className="mb-4 inline-flex rounded-full bg-gradient-to-r from-slate-700 to-gray-800 p-3">
                     <highlight.icon className="h-6 w-6 text-white" />
                   </div>
                   <h4 className="mb-2 text-xl font-semibold">{highlight.title}</h4>

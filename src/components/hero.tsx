@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
+import { CometCard } from "@/components/comet-card";
 
 export default function Hero() {
   const scrollToSection = (href: string) => {
@@ -19,7 +20,7 @@ export default function Hero() {
     >
       {/* Animated gradient background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-50 blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800/30 via-gray-800/30 to-slate-900/30 opacity-50 blur-3xl" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
       </div>
 
@@ -33,12 +34,12 @@ export default function Hero() {
             className="text-center lg:text-left lg:pl-8"
           >
             <motion.h1
-              className="mb-8 text-6xl font-bold leading-tight md:text-7xl lg:text-8xl"
+              className="mb-8 text-5xl font-bold leading-tight md:text-6xl lg:text-7xl whitespace-nowrap"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-slate-300 via-gray-200 to-slate-400 bg-clip-text text-transparent">
                 Vishavjit Singh
               </span>
             </motion.h1>
@@ -69,10 +70,10 @@ export default function Hero() {
             >
               <button
                 onClick={() => scrollToSection("#projects")}
-                className="group relative overflow-hidden rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50"
+                className="group relative overflow-hidden rounded-full bg-gradient-to-r from-slate-700 to-gray-800 px-8 py-4 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-slate-500/50"
               >
                 <span className="relative z-10">View My Work</span>
-                <div className="absolute inset-0 -z-0 bg-gradient-to-r from-purple-600 to-pink-500 opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="absolute inset-0 -z-0 bg-gradient-to-r from-gray-700 to-slate-600 opacity-0 transition-opacity group-hover:opacity-100" />
               </button>
 
               <button
@@ -91,24 +92,22 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative flex justify-center lg:justify-end"
           >
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="relative"
-            >
+            <div className="relative">
               {/* Gradient ring effect */}
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-75 blur-2xl" />
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-slate-600 via-gray-600 to-slate-700 opacity-75 blur-2xl" />
               
-              {/* Profile picture container */}
-              <div className="relative h-72 w-72 overflow-hidden rounded-full border-4 border-white/10 bg-gradient-to-br from-blue-500/20 to-purple-500/20 shadow-2xl md:h-96 md:w-96">
-                <Image
-                  src="/professional_pic.png"
-                  alt="Vishavjit Singh"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
+              {/* Profile picture with CometCard */}
+              <CometCard className="relative rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 p-4 shadow-2xl">
+                <div className="relative h-72 w-72 overflow-hidden rounded-xl bg-gradient-to-br from-slate-700/20 to-gray-800/20 md:h-96 md:w-96">
+                  <Image
+                    src="/professional_pic.png"
+                    alt="Vishavjit Singh"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </CometCard>
 
               {/* Floating elements */}
               <motion.div
@@ -127,7 +126,7 @@ export default function Hero() {
                   <span className="text-sm font-medium">Available for work</span>
                 </div>
               </motion.div>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
 

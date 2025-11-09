@@ -52,7 +52,7 @@ export default function Header() {
                   className="group relative text-sm font-medium text-foreground transition-colors hover:text-blue-500"
                 >
                   {link.name}
-                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-slate-500 to-gray-600 transition-all duration-300 group-hover:w-full" />
                 </button>
               </motion.li>
             ))}

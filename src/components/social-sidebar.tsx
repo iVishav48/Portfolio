@@ -22,7 +22,7 @@ const socialLinks = [
     name: "GitHub",
     href: "https://github.com/iVishav48",
     icon: Github,
-    color: "hover:text-purple-500",
+    color: "hover:text-gray-400",
     isScroll: false,
   },
   {
@@ -77,7 +77,7 @@ export default function SocialSidebar() {
       transition={{ duration: 0.5, delay: 0.5 }}
       className="fixed left-6 top-1/3 z-40 hidden lg:block"
     >
-      <div className="flex flex-col gap-4 rounded-full border border-white/10 bg-background/80 p-3 backdrop-blur-md shadow-xl">
+      <div className="flex flex-col gap-2 rounded-full border border-white/10 bg-background/80 px-2 py-3 backdrop-blur-md shadow-xl">
         {socialLinks.map((link, index) => (
           <motion.div
             key={link.name}
@@ -86,33 +86,39 @@ export default function SocialSidebar() {
             transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
           >
             {link.isScroll ? (
-              <button
+              <motion.button
                 onClick={(e) => handleClick(link, e)}
-                className={`group relative flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-background/50 transition-all hover:scale-110 hover:border-white/30 hover:bg-white/5 ${link.color}`}
+                className="group relative flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-white/10"
                 aria-label={link.name}
+                whileHover={{ scale: 1.15, x: 5 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <link.icon className="h-5 w-5 transition-transform group-hover:scale-110" />
+                <link.icon className={`h-5 w-5 text-foreground/60 transition-colors group-hover:text-foreground ${link.color}`} />
                 
                 {/* Tooltip */}
                 <span className="absolute left-full ml-3 whitespace-nowrap rounded-lg border border-white/10 bg-background/95 px-3 py-1.5 text-sm font-medium opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none backdrop-blur-sm">
                   {link.name}
                 </span>
-              </button>
+              </motion.button>
             ) : (
-              <a
+              <motion.a
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group relative flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-background/50 transition-all hover:scale-110 hover:border-white/30 hover:bg-white/5 ${link.color}`}
+                className="group relative flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-white/10"
                 aria-label={link.name}
+                whileHover={{ scale: 1.15, x: 5 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <link.icon className="h-5 w-5 transition-transform group-hover:scale-110" />
+                <link.icon className={`h-5 w-5 text-foreground/60 transition-colors group-hover:text-foreground ${link.color}`} />
                 
                 {/* Tooltip */}
                 <span className="absolute left-full ml-3 whitespace-nowrap rounded-lg border border-white/10 bg-background/95 px-3 py-1.5 text-sm font-medium opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none backdrop-blur-sm">
                   {link.name}
                 </span>
-              </a>
+              </motion.a>
             )}
           </motion.div>
         ))}
