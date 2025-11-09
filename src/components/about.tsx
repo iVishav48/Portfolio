@@ -74,15 +74,18 @@ export default function About() {
               to open-source projects, or sharing knowledge with the developer community.
             </p>
 
-            <motion.button
+            <motion.a
+              href="/vishavit singh.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group mt-6 flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 font-semibold text-white transition-all hover:shadow-lg hover:shadow-blue-500/50"
+              className="group relative mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 font-semibold text-white transition-all hover:shadow-lg hover:shadow-blue-500/50"
             >
               <Download className="h-5 w-5" />
-              Download Resume
-              <div className="absolute inset-0 -z-0 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 opacity-0 transition-opacity group-hover:opacity-100" />
-            </motion.button>
+              Resume
+              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 opacity-0 transition-opacity group-hover:opacity-100" />
+            </motion.a>
           </motion.div>
 
           <motion.div

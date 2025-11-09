@@ -157,7 +157,7 @@ const ClickSpark = ({
       style={{
         position: 'relative',
         width: '100%',
-        minHeight: '100vh'
+        height: '100%'
       }}
       onClick={handleClick}
     >
@@ -168,7 +168,7 @@ const ClickSpark = ({
           height: '100%',
           display: 'block',
           userSelect: 'none',
-          position: 'fixed',
+          position: 'absolute',
           top: 0,
           left: 0,
           pointerEvents: 'none'
