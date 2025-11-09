@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect } from "react";
 import 'tailwindcss/tailwind.css';
 import Lenis from "lenis";
+import Image from "next/image";
 
 const skillCategories = [
   {
@@ -93,14 +94,13 @@ export default function Skills() {
           mixBlendMode: 'lighten',
           opacity: 0.15,
           background: 'radial-gradient(circle at center, rgba(59, 130, 246, 0.6) 0%, transparent 50%)',
-          
-          '--mx': '-9999px',
-          '--my': '-9999px',
+          ['--mx' as string]: '-9999px',
+          ['--my' as string]: '-9999px',
           WebkitMaskImage: 'radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,1) 0px, rgba(255,255,255,0.95) 100px, rgba(255,255,255,0.6) 200px, rgba(255,255,255,0.25) 300px, rgba(255,255,255,0) 400px)',
           maskImage: 'radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,1) 0px, rgba(255,255,255,0.95) 100px, rgba(255,255,255,0.6) 200px, rgba(255,255,255,0.25) 300px, rgba(255,255,255,0) 400px)',
           WebkitMaskRepeat: 'no-repeat',
           maskRepeat: 'no-repeat'
-        }}
+        } as React.CSSProperties}
       />
 
       {/* Content */}
