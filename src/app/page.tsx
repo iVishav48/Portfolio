@@ -4,6 +4,8 @@ import About from "@/components/about";
 import { ClickSparkProvider } from "@/components/providers/click-spark-provider";
 import SocialSidebar from "@/components/ui/social-sidebar";
 import Projects from "@/components/projects";
+import Skills from "@/components/skill";
+
 
 export default function Home() {
   return (
@@ -20,6 +22,7 @@ export default function Home() {
         <Hero />
         <About />
         <Projects />
+        <Skills />
       </main>
     </ClickSparkProvider>
   );
