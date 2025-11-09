@@ -59,7 +59,7 @@ export default function About() {
           >
             <h3 className="text-2xl font-semibold">Professional Journey</h3>
             <p className="text-foreground/80 leading-relaxed">
-              I'm a passionate developer with a strong foundation in modern web technologies.
+              I&apos;m a passionate developer with a strong foundation in modern web technologies.
               My journey in tech has been driven by curiosity and a desire to build
               meaningful digital experiences that make a difference.
             </p>
@@ -70,12 +70,12 @@ export default function About() {
               trends.
             </p>
             <p className="text-foreground/80 leading-relaxed">
-              When I'm not coding, you'll find me exploring new technologies, contributing
+              When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing
               to open-source projects, or sharing knowledge with the developer community.
             </p>
 
             <motion.a
-              href="/vishavit singh.pdf"
+              href="/Vishavjit Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
