@@ -36,16 +36,7 @@ export default function Header() {
       className="fixed top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-md"
     >
       <nav className="container mx-auto flex items-center justify-between px-6 py-4">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-2xl font-bold"
-        >
-          <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-            Vishavjit Singh
-          </span>
-        </motion.div>
+        <div></div>
 
         <div className="flex items-center gap-8">
           <ul className="hidden items-center gap-8 md:flex">

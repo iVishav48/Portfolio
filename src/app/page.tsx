@@ -2,6 +2,7 @@ import Header from "@/components/header";
 import Hero from "@/components/hero";
 import About from "@/components/about";
 import ClickSpark from "@/components/click-spark";
+import SocialSidebar from "@/components/social-sidebar";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
     >
       <main className="relative min-h-screen">
         <Header />
+        <SocialSidebar />
         <Hero />
         <About />
       </main>
