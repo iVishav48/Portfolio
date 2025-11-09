@@ -1,12 +1,12 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import About from "@/components/about";
-import ClickSpark from "@/components/click-spark";
-import SocialSidebar from "@/components/social-sidebar";
+import { ClickSparkProvider } from "@/components/providers/click-spark-provider";
+import SocialSidebar from "@/components/ui/social-sidebar";
 
 export default function Home() {
   return (
-    <ClickSpark
+    <ClickSparkProvider
       sparkColor="#3b82f6"
       sparkSize={10}
       sparkRadius={20}
@@ -19,6 +19,6 @@ export default function Home() {
         <Hero />
         <About />
       </main>
-    </ClickSpark>
+    </ClickSparkProvider>
   );
 }

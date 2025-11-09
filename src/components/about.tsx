@@ -59,7 +59,7 @@ export default function About() {
           >
             <h3 className="text-2xl font-semibold">Professional Journey</h3>
             <p className="text-foreground/80 leading-relaxed">
-              I&apos;m a passionate developer with a strong foundation in modern web technologies.
+              I am a passionate developer with a strong foundation in modern web technologies.
               My journey in tech has been driven by curiosity and a desire to build
               meaningful digital experiences that make a difference.
             </p>
@@ -70,7 +70,7 @@ export default function About() {
               trends.
             </p>
             <p className="text-foreground/80 leading-relaxed">
-              When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing
+              When I am not coding, you will find me exploring new technologies, contributing
               to open-source projects, or sharing knowledge with the developer community.
             </p>
 

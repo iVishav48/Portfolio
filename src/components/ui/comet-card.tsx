@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useRef } from "react";
 import {
   motion,
@@ -6,7 +7,7 @@ import {
   useSpring,
   useTransform,
   useMotionTemplate,
-} from "motion/react";
+} from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const CometCard = ({
@@ -79,7 +80,7 @@ export const CometCard = ({
   };
 
   return (
-    <div className={cn("perspective-distant transform-3d", className)}>
+    <div className="perspective-distant transform-3d">
       <motion.div
         ref={ref}
         onMouseMove={handleMouseMove}
@@ -98,17 +99,9 @@ export const CometCard = ({
           z: 50,
           transition: { duration: 0.2 },
         }}
-        className="relative rounded-2xl"
+        className={cn("relative rounded-2xl", className)}
       >
         {children}
-        <motion.div
-          className="pointer-events-none absolute inset-0 z-50 h-full w-full rounded-[16px] mix-blend-overlay"
-          style={{
-            background: glareBackground,
-            opacity: 0.6,
-          }}
-          transition={{ duration: 0.2 }}
-        />
       </motion.div>
     </div>
   );

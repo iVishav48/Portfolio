@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
-import { CometCard } from "@/components/comet-card";
+import { CometCard } from "@/components/ui/comet-card";
+import ShinyText from "@/components/ui/shiny-text";
 
 export default function Hero() {
   const scrollToSection = (href: string) => {
@@ -39,9 +40,12 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <span className="bg-gradient-to-r from-slate-300 via-gray-200 to-slate-400 bg-clip-text text-transparent">
-                Vishavjit Singh
-              </span>
+              <ShinyText 
+                text="Vishavjit Singh" 
+                disabled={false} 
+                speed={3}
+                className="bg-gradient-to-r from-slate-300 via-gray-200 to-slate-400"
+              />
             </motion.h1>
 
             <motion.p
