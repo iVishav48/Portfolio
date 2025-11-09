@@ -38,13 +38,13 @@ export default function Hero() {
               className="mb-8 text-5xl font-bold leading-tight md:text-6xl lg:text-7xl whitespace-nowrap"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 3 }}
             >
               <ShinyText 
                 text="Vishavjit Singh" 
                 disabled={false} 
-                speed={3}
-                className="bg-gradient-to-r from-slate-300 via-gray-200 to-slate-400"
+                speed={4}
+                className="bg-gradient-to-r from-slate-300 via-gray-600 to-slate-600"
               />
             </motion.h1>
 

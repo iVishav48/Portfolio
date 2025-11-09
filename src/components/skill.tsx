@@ -76,10 +76,7 @@ export default function Skills() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen overflow-hidden"
-      style={{
-        background: 'linear-gradient(135deg, #000000 0%, #0a0a1a 50%, #000000 100%)'
-      }}
+      className="relative min-h-screen overflow-hidden bg-background/50 backdrop-blur-sm"
     >
       {/* Ambient Background Effect */}
       <div className="absolute inset-0 pointer-events-none opacity-30">
@@ -107,7 +104,7 @@ export default function Skills() {
       />
 
       {/* Content */}
-      <div ref={sectionRef} className="relative z-10 py-24 px-6">
+      <div ref={sectionRef} className="relative z-10 py-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div
@@ -116,27 +113,20 @@ export default function Skills() {
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-center mb-20"
           >
-            <motion.h2 
-              className="text-6xl md:text-7xl font-bold mb-6"
-              style={{
-                background: 'linear-gradient(135deg, #ffffff 0%, #60a5fa 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
-            >
-              Skills
-            </motion.h2>
+            <h2 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl text-center">
+              <span className="bg-gradient-to-r from-slate-300 to-gray-400 bg-clip-text text-transparent">
+                My
+              </span>{" "}
+              <span className="foreground">Skills</span>
+            </h2>
             <motion.div 
               className="w-32 h-1.5 mx-auto rounded-full mb-6"
-              style={{
-                background: 'linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%)'
-              }}
+              
               initial={{ width: 0 }}
               animate={isInView ? { width: 128 } : { width: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             />
-            <p className="text-slate-400 text-xl max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
               A comprehensive toolkit for building modern, scalable applications
             </p>
           </motion.div>
@@ -146,7 +136,7 @@ export default function Skills() {
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto"
           >
             {skillCategories.map((category, idx) => (
               <motion.div
@@ -156,26 +146,26 @@ export default function Skills() {
               >
                 {/* Card Glow Effect */}
                 <div 
-                  className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"
+                  className="absolute -inset-0.5 bg-gradient-to-r from-gray-100 to-gray-900 rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"
                 />
                 
                 {/* Card Content */}
                 <div 
-                  className="relative bg-black/60 backdrop-blur-md rounded-2xl p-8 border border-slate-800/50 group-hover:border-blue-500/50 transition-all duration-500"
+                  className="relative bg-card/80 dark:bg-card/60 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-gray-500 hover:border-gray-900 dark:border-gray-500 dark:hover:border-gray-400 transition-all duration-500 h-full flex flex-col"
                   style={{
-                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)'
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
                   }}
                 >
                   {/* Category Header */}
                   <div className="mb-8">
-                    <h3 className="text-2xl font-bold text-white">
+                    <h3 className="text-2xl font-bold text-foreground">
                       {category.title}
                     </h3>
                     <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-3" />
                   </div>
 
                   {/* Skills List */}
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2.5 mt-auto">
                     {category.skills.map((skill, skillIdx) => (
                       <motion.div
                         key={skillIdx}
@@ -189,13 +179,13 @@ export default function Skills() {
                         whileHover={{ scale: 1.05, y: -2 }}
                         className="relative group/skill"
                       >
-                        <div className="relative px-5 py-3 bg-slate-800/80 backdrop-blur-sm rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300">
+                        <div className="relative px-4 py-2.5 bg-card/80 dark:bg-card/90 backdrop-blur-sm rounded-lg border border-gray-400 hover:border-gray-700 dark:border-gray-500 dark:hover:border-gray-400 transition-all duration-300 text-sm">
                           <div className="flex flex-col">
-                            <span className="text-slate-100 font-semibold text-base whitespace-nowrap">
+                            <span className="text-foreground font-semibold text-base whitespace-nowrap">
                               {skill.name}
                             </span>
                             {skill.subtitle && (
-                              <span className="text-slate-500 text-xs mt-0.5">
+                              <span className="text-muted-foreground text-xs mt-0.5">
                                 {skill.subtitle}
                               </span>
                             )}
@@ -219,7 +209,7 @@ export default function Skills() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mt-20 text-center"
           >
-            <div className="inline-flex items-center gap-3 bg-slate-900/60 backdrop-blur-sm px-8 py-4 rounded-full border border-slate-700/50">
+            <div className="inline-flex items-center gap-3 bg-card/80 dark:bg-card/60 backdrop-blur-sm px-8 py-4 rounded-full border border-border/50">
               <motion.span 
                 className="w-3 h-3 bg-blue-500 rounded-full"
                 animate={{
@@ -231,7 +221,7 @@ export default function Skills() {
                   repeat: Infinity
                 }}
               />
-              <span className="text-slate-300 font-medium">
+              <span className="text-foreground/90 font-medium">
                 Constantly evolving and learning new technologies
               </span>
             </div>

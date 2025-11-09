@@ -74,7 +74,7 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="h-full bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-gray-500 transition-all duration-300 shadow-lg hover:shadow-2xl hover:bg-gray-700/80 overflow-hidden"
+                className="h-full bg-gray-760/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-500 hover:border-gray-900 transition-all duration-300 shadow-lg hover:shadow-2xl hover:bg-gray-700/80 overflow-hidden"
               >
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-2xl font-semibold text-foreground">{project.title}</h3>
@@ -89,7 +89,7 @@ export default function Projects() {
                   </a>
                 </div>
 
-                <p className="text-muted-foreground mb-4">
+                <p className="text-foreground/90 mb-4">
                   {project.description}
                 </p>
 
@@ -97,7 +97,7 @@ export default function Projects() {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-blue-500/10 text-blue-400"
+                      className="px-3 py-1 text-xs font-medium rounded-full bg-blue-900/10 text-grey dark:text-blue-200"
                     >
                       {tech}
                     </span>
