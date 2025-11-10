@@ -65,32 +65,32 @@ export default function SocialSidebar() {
 
   return (
     <motion.div
-      initial={{ x: -100, opacity: 0 }}
+      initial={{ x: -80, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.5 }}
+      transition={{ duration: 0.3, delay: 0.2 }}
       className="fixed left-6 top-1/3 z-40 hidden lg:block"
     >
       <div className="flex flex-col gap-2 rounded-full border border-border/50 bg-background/80 px-2 py-3 backdrop-blur-md shadow-xl">
         {socialLinks.map((link, index) => (
           <motion.div
             key={link.name}
-            initial={{ x: -50, opacity: 0 }}
+            initial={{ x: -40, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+            transition={{ duration: 0.2, delay: 0.25 + index * 0.06 }}
           >
             {link.isScroll ? (
               <motion.button
                 onClick={(e) => handleClick(link, e)}
-                className="group relative flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-primary/10"
+                className="group relative flex h-10 w-10 items-center justify-center rounded-full transition-all duration-100 hover:bg-primary/10"
                 aria-label={link.name}
                 whileHover={{ scale: 1.15, x: 5 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: "spring", stiffness: 600, damping: 18 }}
               >
                 <link.icon className={`h-5 w-5 text-foreground/60 transition-colors group-hover:text-foreground ${link.color}`} />
                 
                 {/* Tooltip */}
-                <span className="absolute left-full ml-3 whitespace-nowrap rounded-lg border border-border/50 bg-background/95 px-3 py-1.5 text-sm font-medium opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none backdrop-blur-sm">
+                <span className="absolute left-full ml-3 whitespace-nowrap rounded-lg border border-border/50 bg-background/95 px-3 py-1.5 text-sm font-medium opacity-0 transition-opacity duration-100 group-hover:opacity-100 pointer-events-none backdrop-blur-sm">
                   {link.name}
                 </span>
               </motion.button>
@@ -99,16 +99,16 @@ export default function SocialSidebar() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-primary/10"
+                className="group relative flex h-10 w-10 items-center justify-center rounded-full transition-all duration-100 hover:bg-primary/10"
                 aria-label={link.name}
                 whileHover={{ scale: 1.15, x: 5 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: "spring", stiffness: 600, damping: 18 }}
               >
                 <link.icon className={`h-5 w-5 text-foreground/60 transition-colors group-hover:text-foreground ${link.color}`} />
                 
                 {/* Tooltip */}
-                <span className="absolute left-full ml-3 whitespace-nowrap rounded-lg border border-border/50 bg-background/95 px-3 py-1.5 text-sm font-medium opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none backdrop-blur-sm">
+                <span className="absolute left-full ml-3 whitespace-nowrap rounded-lg border border-border/50 bg-background/95 px-3 py-1.5 text-sm font-medium opacity-0 transition-opacity duration-100 group-hover:opacity-100 pointer-events-none backdrop-blur-sm">
                   {link.name}
                 </span>
               </motion.a>

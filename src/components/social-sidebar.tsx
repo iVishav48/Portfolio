@@ -36,7 +36,6 @@ const socialLinks = [
     name: "Twitter",
     href: "https://x.com/Vishavjit_48",
     icon: Twitter,
-    color: "hover:text-sky-500",
     isScroll: false,
   },
   {
@@ -74,7 +73,7 @@ export default function SocialSidebar() {
     <motion.div
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.5 }}
+      transition={{ duration: 0.05, delay: 0.05 }}
       className="fixed left-6 top-1/3 z-40 hidden lg:block"
     >
       <div className="flex flex-col gap-2 rounded-full border border-white/10 bg-background/80 px-2 py-3 backdrop-blur-md shadow-xl">

@@ -1,4 +1,7 @@
 .shiny-text {
+  display: inline-block;
+  line-height: 1.15;
+  padding-bottom: 0.15em;
   background: linear-gradient(
     90deg,
     #000 0%,
@@ -15,6 +18,9 @@
 }
 
 .dark .shiny-text {
+  display: inline-block;
+  line-height: 1.15;
+  padding-bottom: 0.15em;
   background: linear-gradient(
     90deg,
     #fff 0%,

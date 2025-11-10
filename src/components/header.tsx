@@ -42,10 +42,20 @@ export default function Header() {
       transition={{ duration: 0.5 }}
       className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md"
     >
-      <nav className="container mx-auto flex items-center justify-between px-6 py-4">
-        <div></div>
+      <nav className="container mx-auto grid grid-cols-3 items-center px-6 py-4">
+        {/* Left: Signature name */}
+        <div className="flex items-center">
+          <a
+            href="#home"
+            className="select-none text-xl italic font-semibold tracking-wide text-foreground/90 hover:text-primary transition-colors"
+            style={{ fontFamily: "cursive" }}
+          >
+            Vishavjit Singh
+          </a>
+        </div>
 
-        <div className="flex items-center gap-8">
+        {/* Center: Nav links */}
+        <div className="flex items-center justify-center">
           <ul className="hidden items-center gap-8 md:flex">
             {navLinks.map((link, index) => (
               <motion.li
@@ -64,7 +74,18 @@ export default function Header() {
               </motion.li>
             ))}
           </ul>
+        </div>
 
+        {/* Right: Resume + Theme toggle */}
+        <div className="ml-auto flex items-center justify-end gap-3">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden rounded-full border border-border/50 px-3 py-1.5 text-sm font-medium text-foreground transition-all hover:border-primary/50 hover:bg-primary/10 md:inline-flex"
+          >
+            Resume
+          </a>
           {mounted && (
             <motion.button
               initial={{ opacity: 0, scale: 0.5 }}

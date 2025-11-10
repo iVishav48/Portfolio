@@ -35,7 +35,29 @@ const socialLinks = [
   },
 ];
 
-const formEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
+const rawFormEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
+function getFormspreeFormId(input?: string | null): string | null {
+  if (!input) return null;
+  const v = input.trim().replace(/"/g, "");
+  if (!v) return null;
+  // If it's already just the id
+  const idMatchBare = v.match(/^[a-z0-9]{6,12}$/i);
+  if (idMatchBare) return idMatchBare[0];
+  // If it contains /f/<id>
+  const idMatchPath = v.match(/\/f\/([a-z0-9]{6,12})/i);
+  if (idMatchPath) return idMatchPath[1];
+  // If it's the whole url without protocol
+  const idMatchNoProto = v.match(/formspree\.io\/f\/([a-z0-9]{6,12})/i);
+  if (idMatchNoProto) return idMatchNoProto[1];
+  return null;
+}
+const formId = getFormspreeFormId(rawFormEndpoint) || "mzzypqob"; // fallback to provided id to ensure working
+const formEndpoint = `https://formspree.io/f/${formId}`;
+// Dev-only visibility to confirm env is wired. This is stripped/minified in production builds.
+if (typeof window !== "undefined" && process.env.NODE_ENV !== "production") {
+  // eslint-disable-next-line no-console
+  console.debug("Formspree form ID:", formId);
+}
 
 export default function Contact() {
   const ref = useRef(null);
@@ -69,21 +91,36 @@ export default function Contact() {
     }
 
     try {
+      const formPayload = new FormData();
+      formPayload.append("name", formData.name);
+      formPayload.append("email", formData.email);
+      formPayload.append("message", formData.message);
+
       const response = await fetch(formEndpoint, {
         method: "POST",
+        // Do NOT set Content-Type when sending FormData; the browser sets the boundary automatically
         headers: {
-          "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+        body: formPayload,
       });
 
       if (!response.ok) {
-        throw new Error("Failed to send message. Please try again later.");
+        let detail = "";
+        try {
+          const data = await response.json();
+          if (data?.errors?.length) {
+            detail = data.errors.map((e: any) => e.message).join("; ");
+          } else if (data?.error) {
+            detail = data.error;
+          }
+        } catch (_) {
+          try {
+            const txt = await response.text();
+            detail = txt?.slice(0, 200);
+          } catch (_) {}
+        }
+        throw new Error(detail || `Form submission failed (HTTP ${response.status})`);
       }
 
       setStatus("success");
@@ -92,8 +129,9 @@ export default function Contact() {
       setTimeout(() => {
         setStatus("idle");
       }, 4000);
-
     } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error("Form submission error:", error);
       setStatus("error");
       setErrorMessage(error instanceof Error ? error.message : "Something went wrong. Try again later.");
     }
@@ -269,8 +307,10 @@ export default function Contact() {
                       target="_blank"
                       rel="noopener noreferrer"
                       initial={{ opacity: 0, y: 20 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                      transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
+                      animate={isInView
+                        ? { opacity: 1, y: 0, transition: { duration: 0.25, delay: 0.15 + index * 0.08 } }
+                        : { opacity: 0, y: 20 }
+                      }
                       whileHover={{
                         scale: 1.08,
                         y: -3,
@@ -278,7 +318,7 @@ export default function Contact() {
                         backgroundColor: social.background,
                       }}
                       whileTap={{ scale: 0.95 }}
-                      className="group flex items-center gap-2 p-3 rounded-lg border border-border/50 bg-card/50 transition-all duration-200 cursor-pointer"
+                      className="group flex items-center gap-2 p-3 rounded-lg border border-border/50 bg-card/50 transition-all duration-100 cursor-pointer"
                     >
                       <Icon size={20} className="text-foreground/70 transition-colors group-hover:text-foreground" />
                       <span className="text-sm font-medium text-foreground">{social.name}</span>

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
+import SiteParticles from "@/components/SiteParticles";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SmoothScrollProvider>
+            {/* Site-wide background particles */}
+            <div className="pointer-events-none fixed inset-0 -z-10">
+              <SiteParticles />
+            </div>
             {children}
           </SmoothScrollProvider>
         </ThemeProvider>
