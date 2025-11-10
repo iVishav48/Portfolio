@@ -35,7 +35,7 @@ export default function Hero() {
             className="text-center lg:text-left lg:pl-8"
           >
             <motion.h1
-              className="mb-8 pb-1 text-5xl font-bold leading-snug md:text-6xl lg:text-7xl whitespace-nowrap"
+              className="mb-8 pb-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-snug sm:whitespace-nowrap"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}

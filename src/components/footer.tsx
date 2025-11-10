@@ -109,7 +109,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="text-[11px] text-foreground/60"
+            className="text-[12.5px] text-foreground/60"
           >
             © 2025 Vishavjit Singh •  All rights reserved
           </motion.p>
