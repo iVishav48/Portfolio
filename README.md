@@ -21,21 +21,6 @@ A modern, premium, and interactive personal portfolio website built with Next.js
 - **Icons**: Lucide React
 - **Theme**: next-themes
 
-## 📦 Installation
-
-```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
-```
 
 ## 🎨 Sections
 
@@ -45,10 +30,6 @@ npm start
 - **Projects**: (Coming soon)
 - **Skills**: (Coming soon)
 - **Contact**: (Coming soon)
-
-## 📝 License
-
-MIT License - feel free to use this template for your own portfolio!
 
 ## 👤 Author
 
