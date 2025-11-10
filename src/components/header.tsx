@@ -24,7 +24,14 @@ export default function Header() {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const headerHeight = 80; // Approximate header height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -33,7 +40,7 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-md"
+      className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md"
     >
       <nav className="container mx-auto flex items-center justify-between px-6 py-4">
         <div></div>
@@ -49,10 +56,10 @@ export default function Header() {
               >
                 <button
                   onClick={() => scrollToSection(link.href)}
-                  className="group relative text-sm font-medium text-foreground transition-colors hover:text-blue-500"
+                  className="group relative text-sm font-medium text-foreground transition-colors hover:text-primary"
                 >
                   {link.name}
-                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-slate-500 to-gray-600 transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-primary/80 transition-all duration-300 group-hover:w-full" />
                 </button>
               </motion.li>
             ))}
@@ -64,13 +71,13 @@ export default function Header() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 }}
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="rounded-full border border-white/10 p-2 transition-all hover:border-blue-500/50 hover:bg-blue-500/10"
+              className="rounded-full border border-border/50 p-2 transition-all hover:border-primary/50 hover:bg-primary/10"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (
-                <Sun className="h-5 w-5 text-yellow-500" />
+                <Sun className="h-5 w-5 text-primary" />
               ) : (
-                <Moon className="h-5 w-5 text-blue-500" />
+                <Moon className="h-5 w-5 text-primary" />
               )}
             </motion.button>
           )}

@@ -1,10 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useEffect } from "react";
-import 'tailwindcss/tailwind.css';
-import Lenis from "lenis";
-import Image from "next/image";
+import { useRef, useEffect, useState } from "react";
 
 const skillCategories = [
   {
@@ -48,184 +45,116 @@ const skillCategories = [
 ];
 
 export default function Skills() {
-  const containerRef = useRef(null);
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
-  const revealRef = useRef(null);
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
+  const [mounted, setMounted] = useState(false);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1]
-      }
-    }
-  };
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section 
-      ref={containerRef}
-      className="relative min-h-screen overflow-hidden bg-background/50 backdrop-blur-sm"
+      id="skills"
+      ref={ref}
+      className="relative min-h-screen px-6 py-24"
     >
-      {/* Ambient Background Effect */}
-      <div className="absolute inset-0 pointer-events-none opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      </div>
+      <div className="container mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={mounted && isInView ? { opacity: 1, y: 0 } : mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8 }}
+          className="mb-16 text-center"
+        >
+          <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
+            <span className="bg-gradient-to-r from-slate-300 to-gray-400 bg-clip-text text-transparent">
+              My
+            </span>{" "}
+            <span className="text-foreground">Skills</span>
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg text-foreground/70">
+            A comprehensive toolkit for building modern, scalable applications
+          </p>
+        </motion.div>
 
-      {/* Interactive Reveal Effect */}
-      <div
-        ref={revealRef}
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          zIndex: 2,
-          mixBlendMode: 'lighten',
-          opacity: 0.15,
-          background: 'radial-gradient(circle at center, rgba(59, 130, 246, 0.6) 0%, transparent 50%)',
-          ['--mx' as string]: '-9999px',
-          ['--my' as string]: '-9999px',
-          WebkitMaskImage: 'radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,1) 0px, rgba(255,255,255,0.95) 100px, rgba(255,255,255,0.6) 200px, rgba(255,255,255,0.25) 300px, rgba(255,255,255,0) 400px)',
-          maskImage: 'radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,1) 0px, rgba(255,255,255,0.95) 100px, rgba(255,255,255,0.6) 200px, rgba(255,255,255,0.25) 300px, rgba(255,255,255,0) 400px)',
-          WebkitMaskRepeat: 'no-repeat',
-          maskRepeat: 'no-repeat'
-        } as React.CSSProperties}
-      />
-
-      {/* Content */}
-      <div ref={sectionRef} className="relative z-10 py-16 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          {/* Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-center mb-20"
-          >
-            <h2 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl text-center">
-              <span className="bg-gradient-to-r from-slate-300 to-gray-400 bg-clip-text text-transparent">
-                My
-              </span>{" "}
-              <span className="foreground">Skills</span>
-            </h2>
-            <motion.div 
-              className="w-32 h-1.5 mx-auto rounded-full mb-6"
+        <div className="grid gap-12 md:grid-cols-2 lg:gap-16">
+          {skillCategories.map((category, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 50 }}
+              animate={mounted && isInView ? { opacity: 1, y: 0 } : mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.2 + idx * 0.1 }}
+              whileHover={{ 
+                scale: 1.02,
+                y: -4,
+                transition: {
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 25,
+                  mass: 0.5
+                }
+              }}
+              whileTap={{ 
+                scale: 0.98,
+                transition: {
+                  type: "spring",
+                  stiffness: 600,
+                  damping: 30
+                }
+              }}
+              className="group relative rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-6 transition-colors duration-200 hover:border-border hover:bg-card/90 shadow-lg"
+            >
+              {/* Glow Effect */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-slate-500/20 via-gray-500/30 to-slate-500/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 -z-10" />
               
-              initial={{ width: 0 }}
-              animate={isInView ? { width: 128 } : { width: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            />
-            <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
-              A comprehensive toolkit for building modern, scalable applications
-            </p>
-          </motion.div>
-
-          {/* Skills Grid */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto"
-          >
-            {skillCategories.map((category, idx) => (
-              <motion.div
-                key={idx}
-                variants={itemVariants}
-                className="group relative"
-              >
-                {/* Card Glow Effect */}
-                <div 
-                  className="absolute -inset-0.5 bg-gradient-to-r from-gray-100 to-gray-900 rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"
-                />
-                
-                {/* Card Content */}
-                <div 
-                  className="relative bg-card/80 dark:bg-card/60 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-gray-500 hover:border-gray-900 dark:border-gray-500 dark:hover:border-gray-400 transition-all duration-500 h-full flex flex-col"
-                  style={{
-                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
-                  }}
-                >
-                  {/* Category Header */}
-                  <div className="mb-8">
-                    <h3 className="text-2xl font-bold text-foreground">
-                      {category.title}
-                    </h3>
-                    <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-3" />
-                  </div>
-
-                  {/* Skills List */}
-                  <div className="flex flex-wrap gap-2.5 mt-auto">
-                    {category.skills.map((skill, skillIdx) => (
-                      <motion.div
-                        key={skillIdx}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                        transition={{ 
-                          duration: 0.4, 
-                          delay: idx * 0.1 + skillIdx * 0.05,
-                          ease: [0.25, 0.1, 0.25, 1]
-                        }}
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        className="relative group/skill"
-                      >
-                        <div className="relative px-4 py-2.5 bg-card/80 dark:bg-card/90 backdrop-blur-sm rounded-lg border border-gray-400 hover:border-gray-700 dark:border-gray-500 dark:hover:border-gray-400 transition-all duration-300 text-sm">
-                          <div className="flex flex-col">
-                            <span className="text-foreground font-semibold text-base whitespace-nowrap">
-                              {skill.name}
-                            </span>
-                            {skill.subtitle && (
-                              <span className="text-muted-foreground text-xs mt-0.5">
-                                {skill.subtitle}
-                              </span>
-                            )}
-                          </div>
-                          
-                          {/* Hover Gradient Border */}
-                          <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover/skill:opacity-20 transition-opacity duration-300 -z-10" />
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-semibold text-foreground mb-6">{category.title}</h3>
+                <div className="flex flex-wrap gap-2.5">
+                  {category.skills.map((skill, skillIdx) => (
+                    <motion.div
+                      key={skillIdx}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={mounted && isInView ? { opacity: 1, y: 0 } : mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                      transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 + skillIdx * 0.05 }}
+                      whileHover={{ 
+                        scale: 1.05, 
+                        y: -2,
+                        transition: {
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 25,
+                          mass: 0.5
+                        }
+                      }}
+                      whileTap={{ 
+                        scale: 0.95,
+                        transition: {
+                          type: "spring",
+                          stiffness: 600,
+                          damping: 30
+                        }
+                      }}
+                      className="group/skill relative rounded-2xl border border-border bg-card/50 p-4 backdrop-blur-sm transition-colors duration-200 hover:border-primary/50 hover:bg-primary/10 cursor-pointer"
+                    >
+                      {/* Skill Glow Effect */}
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-slate-400/10 via-gray-400/20 to-slate-400/10 rounded-2xl opacity-0 group-hover/skill:opacity-100 blur-lg transition-opacity duration-300 -z-10" />
+                      
+                      <div className="relative z-10 flex flex-col">
+                        <span className="text-foreground font-semibold text-base whitespace-nowrap">
+                          {skill.name}
+                        </span>
+                        {skill.subtitle && (
+                          <span className="text-muted-foreground text-xs mt-0.5">
+                            {skill.subtitle}
+                          </span>
+                        )}
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Bottom Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-20 text-center"
-          >
-            <div className="inline-flex items-center gap-3 bg-card/80 dark:bg-card/60 backdrop-blur-sm px-8 py-4 rounded-full border border-border/50">
-              <motion.span 
-                className="w-3 h-3 bg-blue-500 rounded-full"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [1, 0.7, 1]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity
-                }}
-              />
-              <span className="text-foreground/90 font-medium">
-                Constantly evolving and learning new technologies
-              </span>
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -74,15 +74,15 @@ export default function Hero() {
             >
               <button
                 onClick={() => scrollToSection("#projects")}
-                className="group relative overflow-hidden rounded-full bg-gradient-to-r from-slate-700 to-gray-800 px-8 py-4 font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-slate-500/50"
+                className="group relative overflow-hidden rounded-full bg-gradient-to-r from-primary to-primary/80 px-8 py-4 font-semibold text-primary-foreground transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/50"
               >
                 <span className="relative z-10">View My Work</span>
-                <div className="absolute inset-0 -z-0 bg-gradient-to-r from-gray-700 to-slate-600 opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="absolute inset-0 -z-0 bg-gradient-to-r from-primary/80 to-primary/60 opacity-0 transition-opacity group-hover:opacity-100" />
               </button>
 
               <button
                 onClick={() => scrollToSection("#contact")}
-                className="rounded-full border-2 border-blue-500/50 px-8 py-4 font-semibold text-foreground transition-all hover:scale-105 hover:border-blue-500 hover:bg-blue-500/10"
+                className="rounded-full border-2 border-primary/50 px-8 py-4 font-semibold text-foreground transition-all hover:scale-105 hover:border-primary hover:bg-primary/10"
               >
                 Contact Me
               </button>
@@ -98,11 +98,11 @@ export default function Hero() {
           >
             <div className="relative">
               {/* Gradient ring effect */}
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-slate-600 via-gray-600 to-slate-700 opacity-75 blur-2xl" />
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-primary/30 via-primary/20 to-primary/30 opacity-75 blur-2xl" />
               
               {/* Profile picture with CometCard */}
-              <CometCard className="relative rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 p-4 shadow-2xl">
-                <div className="relative h-72 w-72 overflow-hidden rounded-xl bg-gradient-to-br from-slate-700/20 to-gray-800/20 md:h-96 md:w-96">
+              <CometCard className="relative rounded-2xl bg-gradient-to-br from-card to-card/80 p-4 shadow-2xl border border-border/50">
+                <div className="relative h-72 w-72 overflow-hidden rounded-xl bg-gradient-to-br from-background/20 to-background/10 md:h-96 md:w-96">
                   <Image
                     src="/professional_pic.png"
                     alt="Vishavjit Singh"
@@ -123,10 +123,10 @@ export default function Hero() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute -right-4 top-10 rounded-2xl border border-white/10 bg-background/80 p-4 backdrop-blur-sm shadow-xl"
+                className="absolute -right-4 top-10 rounded-2xl border border-border/50 bg-background/80 p-4 backdrop-blur-sm shadow-xl"
               >
                 <div className="flex items-center gap-2">
-                  <div className="h-3 w-3 rounded-full bg-green-500 animate-pulse" />
+                  <div className="h-3 w-3 rounded-full bg-primary animate-pulse" />
                   <span className="text-sm font-medium">Available for work</span>
                 </div>
               </motion.div>
@@ -147,7 +147,7 @@ export default function Hero() {
         >
           <button
             onClick={() => scrollToSection("#about")}
-            className="rounded-full border border-white/10 p-2 transition-all hover:border-blue-500/50 hover:bg-blue-500/10"
+            className="rounded-full border border-border/50 p-2 transition-all hover:border-primary/50 hover:bg-primary/10"
           >
             <ArrowDown className="h-6 w-6" />
           </button>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Instagram, Twitter, Mail, MessageSquare, Home } from "lucide-react";
+import { Github, Linkedin, Instagram, Twitter, Mail, Home } from "lucide-react";
 
 const socialLinks = [
   {
@@ -46,13 +46,6 @@ const socialLinks = [
     color: "hover:text-pink-500",
     isScroll: false,
   },
-  {
-    name: "Contact",
-    href: "#contact",
-    icon: MessageSquare,
-    color: "hover:text-green-500",
-    isScroll: true,
-  },
 ];
 
 export default function SocialSidebar() {
@@ -77,7 +70,7 @@ export default function SocialSidebar() {
       transition={{ duration: 0.5, delay: 0.5 }}
       className="fixed left-6 top-1/3 z-40 hidden lg:block"
     >
-      <div className="flex flex-col gap-2 rounded-full border border-white/10 bg-background/80 px-2 py-3 backdrop-blur-md shadow-xl">
+      <div className="flex flex-col gap-2 rounded-full border border-border/50 bg-background/80 px-2 py-3 backdrop-blur-md shadow-xl">
         {socialLinks.map((link, index) => (
           <motion.div
             key={link.name}
@@ -88,7 +81,7 @@ export default function SocialSidebar() {
             {link.isScroll ? (
               <motion.button
                 onClick={(e) => handleClick(link, e)}
-                className="group relative flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-white/10"
+                className="group relative flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-primary/10"
                 aria-label={link.name}
                 whileHover={{ scale: 1.15, x: 5 }}
                 whileTap={{ scale: 0.95 }}
@@ -97,7 +90,7 @@ export default function SocialSidebar() {
                 <link.icon className={`h-5 w-5 text-foreground/60 transition-colors group-hover:text-foreground ${link.color}`} />
                 
                 {/* Tooltip */}
-                <span className="absolute left-full ml-3 whitespace-nowrap rounded-lg border border-white/10 bg-background/95 px-3 py-1.5 text-sm font-medium opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none backdrop-blur-sm">
+                <span className="absolute left-full ml-3 whitespace-nowrap rounded-lg border border-border/50 bg-background/95 px-3 py-1.5 text-sm font-medium opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none backdrop-blur-sm">
                   {link.name}
                 </span>
               </motion.button>
@@ -106,7 +99,7 @@ export default function SocialSidebar() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-white/10"
+                className="group relative flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-primary/10"
                 aria-label={link.name}
                 whileHover={{ scale: 1.15, x: 5 }}
                 whileTap={{ scale: 0.95 }}
@@ -115,7 +108,7 @@ export default function SocialSidebar() {
                 <link.icon className={`h-5 w-5 text-foreground/60 transition-colors group-hover:text-foreground ${link.color}`} />
                 
                 {/* Tooltip */}
-                <span className="absolute left-full ml-3 whitespace-nowrap rounded-lg border border-white/10 bg-background/95 px-3 py-1.5 text-sm font-medium opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none backdrop-blur-sm">
+                <span className="absolute left-full ml-3 whitespace-nowrap rounded-lg border border-border/50 bg-background/95 px-3 py-1.5 text-sm font-medium opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none backdrop-blur-sm">
                   {link.name}
                 </span>
               </motion.a>

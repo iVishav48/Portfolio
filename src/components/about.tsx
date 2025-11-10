@@ -80,11 +80,11 @@ export default function About() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-slate-700 to-gray-800 px-6 py-3 font-semibold text-white transition-all hover:shadow-lg hover:shadow-slate-500/50"
+              className="group relative mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary/80 px-6 py-3 font-semibold text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/50"
             >
               <Download className="h-5 w-5" />
               Resume
-              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-gray-700 to-slate-600 opacity-0 transition-opacity group-hover:opacity-100" />
+              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-primary/80 to-primary/60 opacity-0 transition-opacity group-hover:opacity-100" />
             </motion.a>
           </motion.div>
 
@@ -102,10 +102,10 @@ export default function About() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                  className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:border-blue-500/50 hover:bg-blue-500/10"
+                  className="group rounded-2xl border border-border/50 bg-card/50 p-6 backdrop-blur-sm transition-all hover:border-primary/50 hover:bg-primary/10"
                 >
-                  <div className="mb-4 inline-flex rounded-full bg-gradient-to-r from-slate-700 to-gray-800 p-3">
-                    <highlight.icon className="h-6 w-6 text-white" />
+                  <div className="mb-4 inline-flex rounded-full bg-gradient-to-r from-primary to-primary/80 p-3">
+                    <highlight.icon className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <h4 className="mb-2 text-xl font-semibold">{highlight.title}</h4>
                   <p className="text-foreground/70">{highlight.description}</p>

@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
