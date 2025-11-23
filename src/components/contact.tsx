@@ -76,8 +76,9 @@ export default function Contact() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1
+        staggerChildren: 0.15,
+        delayChildren: 0.15,
+        ease: [0.1, 0.1, 0.25, 1]
       }
     }
   };
@@ -94,9 +95,11 @@ export default function Contact() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 100,
-        damping: 20,
-        duration: 0.8
+        stiffness: 80,
+        damping: 30,
+        mass: 1,
+        velocity: 0,
+        restDelta: 0.001
       }
     }
   };
@@ -113,9 +116,11 @@ export default function Contact() {
       rotateY: 0,
       transition: {
         type: "spring",
-        stiffness: 80,
-        damping: 25,
-        duration: 1
+        stiffness: 60,
+        damping: 35,
+        mass: 1.2,
+        velocity: 0,
+        restDelta: 0.001
       }
     }
   };
@@ -132,9 +137,11 @@ export default function Contact() {
       rotateY: 0,
       transition: {
         type: "spring",
-        stiffness: 80,
-        damping: 25,
-        duration: 1,
+        stiffness: 60,
+        damping: 35,
+        mass: 1.2,
+        velocity: 0,
+        restDelta: 0.001,
         delay: 0.05
       }
     }
@@ -152,9 +159,11 @@ export default function Contact() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 120,
-        damping: 18,
-        duration: 0.7
+        stiffness: 70,
+        damping: 28,
+        mass: 1,
+        velocity: 0,
+        restDelta: 0.001
       }
     }
   };
@@ -171,9 +180,11 @@ export default function Contact() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 150,
-        damping: 15,
-        duration: 0.5
+        stiffness: 90,
+        damping: 25,
+        mass: 0.8,
+        velocity: 0,
+        restDelta: 0.001
       }
     }
   };
@@ -457,7 +468,7 @@ export default function Contact() {
                 </motion.div>
                 <motion.div variants={socialVariants} transition={{ delay: 0.05 }}>
                   <p className="text-sm text-muted-foreground mb-2">Status</p>
-                  <div className="flex items-center gap-2">
+aa                  <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                     <p className="font-medium text-foreground">Available for projects</p>
                   </div>
