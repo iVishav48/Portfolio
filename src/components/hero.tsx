@@ -5,6 +5,7 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import { CometCard } from "@/components/ui/comet-card";
 import ShinyText from "@/components/ui/shiny-text";
+import DecryptedText from './DecryptedText';
 
 export default function Hero() {
   const scrollToSection = (href: string) => {
@@ -48,14 +49,45 @@ export default function Hero() {
               />
             </motion.h1>
 
-            <motion.p
+            <motion.div
               className="mb-6 text-2xl text-foreground/80 md:text-3xl lg:text-4xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Tech Enthusiast | Developer | Innovator
-            </motion.p>
+              <div className="flex flex-col gap-2">
+                <DecryptedText
+                  text="Tech Enthusiast"
+                  animateOn="hover"
+                  sequential={true}
+                  speed={80}
+                  maxIterations={25}
+                  revealDirection="start"
+                  className="text-inherit"
+                  encryptedClassName="text-primary/40"
+                />
+                <DecryptedText
+                  text="Developer"
+                  animateOn="hover"
+                  sequential={true}
+                  speed={80}
+                  maxIterations={25}
+                  revealDirection="start"
+                  className="text-inherit"
+                  encryptedClassName="text-primary/40"
+                />
+                <DecryptedText
+                  text="Innovator"
+                  animateOn="hover"
+                  sequential={true}
+                  speed={80}
+                  maxIterations={25}
+                  revealDirection="start"
+                  className="text-inherit"
+                  encryptedClassName="text-primary/40"
+                />
+              </div>
+            </motion.div>
 
             <motion.p
               className="mb-12 text-lg text-foreground/60 md:text-xl lg:text-2xl"

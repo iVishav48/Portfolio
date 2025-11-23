@@ -53,6 +53,72 @@ export default function Skills() {
     setMounted(true);
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const headingVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+        duration: 0.8
+      }
+    }
+  };
+
+  const categoryVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 80,
+      scale: 0.9
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+        duration: 0.8
+      }
+    }
+  };
+
+  const skillVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      rotateX: -15
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      rotateX: 0,
+      transition: {
+        type: "spring",
+        stiffness: 150,
+        damping: 15,
+        duration: 0.6
+      }
+    }
+  };
+
   return (
     <section 
       id="skills"
@@ -61,29 +127,40 @@ export default function Skills() {
     >
       <div className="container mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={mounted && isInView ? { opacity: 1, y: 0 } : mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
           className="mb-16 text-center"
         >
-          <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
+          <motion.h2 
+            variants={headingVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl"
+          >
             <span className="bg-gradient-to-r from-slate-300 to-gray-400 bg-clip-text text-transparent">
               My
             </span>{" "}
             <span className="text-foreground">Skills</span>
-          </h2>
-          <p className="mx-auto max-w-2xl text-lg text-foreground/70">
+          </motion.h2>
+          <motion.p 
+            variants={headingVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            transition={{ delay: 0.2 }}
+            className="mx-auto max-w-2xl text-lg text-foreground/70"
+          >
             A comprehensive toolkit for building modern, scalable applications
-          </p>
+          </motion.p>
         </motion.div>
 
-        <div className="grid gap-12 md:grid-cols-2 lg:gap-16">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid gap-12 md:grid-cols-2 lg:gap-16"
+        >
           {skillCategories.map((category, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 50 }}
-              animate={mounted && isInView ? { opacity: 1, y: 0 } : mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.8, delay: 0.2 + idx * 0.1 }}
+              variants={categoryVariants}
               whileHover={{ 
                 scale: 1.02,
                 y: -4,
@@ -108,14 +185,20 @@ export default function Skills() {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-slate-500/20 via-gray-500/30 to-slate-500/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 -z-10" />
               
               <div className="relative z-10">
-                <h3 className="text-2xl font-semibold text-foreground mb-6">{category.title}</h3>
-                <div className="flex flex-wrap gap-2.5">
+                <motion.h3 
+                  variants={skillVariants}
+                  className="text-2xl font-semibold text-foreground mb-6"
+                >
+                  {category.title}
+                </motion.h3>
+                <motion.div 
+                  variants={containerVariants}
+                  className="flex flex-wrap gap-2.5"
+                >
                   {category.skills.map((skill, skillIdx) => (
                     <motion.div
                       key={skillIdx}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={mounted && isInView ? { opacity: 1, y: 0 } : mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                      transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 + skillIdx * 0.05 }}
+                      variants={skillVariants}
                       whileHover={{ 
                         scale: 1.05, 
                         y: -2,
@@ -151,11 +234,11 @@ export default function Skills() {
                       </div>
                     </motion.div>
                   ))}
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

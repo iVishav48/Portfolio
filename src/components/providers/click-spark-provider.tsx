@@ -21,7 +21,7 @@ interface Spark {
 }
 
 export function ClickSparkProvider({
-  sparkColor = '#fff',
+  sparkColor,
   sparkSize = 10,
   sparkRadius = 15,
   sparkCount = 8,
@@ -33,6 +33,34 @@ export function ClickSparkProvider({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sparksRef = useRef<Spark[]>([]);
   const startTimeRef = useRef<number | null>(null);
+  const currentSparkColorRef = useRef<string>(sparkColor || '#fff');
+
+  // Detect theme and set appropriate spark color
+  useEffect(() => {
+    const updateSparkColor = () => {
+      if (sparkColor) {
+        currentSparkColorRef.current = sparkColor;
+      } else {
+        // Auto-detect theme: white for dark mode, black for light mode
+        const isDarkMode = document.documentElement.classList.contains('dark');
+        currentSparkColorRef.current = isDarkMode ? '#ffffff' : '#000000';
+      }
+    };
+
+    updateSparkColor();
+
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      updateSparkColor();
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, [sparkColor]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -114,7 +142,7 @@ export function ClickSparkProvider({
         const x2 = spark.x + (distance + lineLength) * Math.cos(spark.angle);
         const y2 = spark.y + (distance + lineLength) * Math.sin(spark.angle);
 
-        ctx.strokeStyle = sparkColor;
+        ctx.strokeStyle = currentSparkColorRef.current;
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(x1, y1);
@@ -132,7 +160,7 @@ export function ClickSparkProvider({
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, [sparkColor, sparkSize, sparkRadius, sparkCount, duration, easeFunc, extraScale]);
+  }, [sparkSize, sparkRadius, sparkCount, duration, easeFunc, extraScale, currentSparkColorRef]);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const canvas = canvasRef.current;

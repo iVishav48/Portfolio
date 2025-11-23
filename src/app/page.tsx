@@ -12,7 +12,6 @@ import Footer from "@/components/footer";
 export default function Home() {
   return (
     <ClickSparkProvider
-      sparkColor="#3b82f6"
       sparkSize={10}
       sparkRadius={20}
       sparkCount={8}
