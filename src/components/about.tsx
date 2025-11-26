@@ -64,10 +64,10 @@ export default function About() {
               meaningful digital experiences that make a difference.
             </p>
             <p className="text-foreground/80 leading-relaxed">
-              With time, patience and hard work , I specialized in creating responsive, performant, and user-centric applications. I believe in writing clean, maintainable code and staying updated with the latest industry trends.
+              With time, patience, and consistent practice, I developed strong expertise in transforming raw data into meaningful insights. I focus on building reliable, data-driven solutions through clean analysis, efficient modeling, and continuous learning to stay aligned with modern data science practices.
             </p>
             <p className="text-foreground/80 leading-relaxed">
-              When I am not coding, you will find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.
+              When I am not coding, you will find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community. I also enjoy improving myself in any way possible and enjoying my hobbies.
             </p>
 
             <motion.a
