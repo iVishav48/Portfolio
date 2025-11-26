@@ -10,6 +10,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Vishavjit Singh | Portfolio",
   description: "Tech Enthusiast | Developer | Innovator",
+  icons: {
+    icon: "/letter-v-wing-logo.webp",
+    shortcut: "/letter-v-wing-logo.webp",
+    apple: "/letter-v-wing-logo.webp",
+  },
 };
 
 export default function RootLayout({

@@ -68,12 +68,30 @@ export default function Header() {
         className="container mx-auto grid grid-cols-3 items-center px-4 sm:px-6"
         style={{ overflow: "hidden" }}
       >
-        {/* Left: Signature name */}
+        {/* Left: Logo + Signature name */}
         <motion.div
           animate={{ scale: isScrolled ? 0.92 : 1 }}
           transition={{ duration: 0.2 }}
-          className="flex items-center"
+          className="flex items-center gap-0"
         >
+          {/* Theme-aware logo */}
+          {mounted && (
+            <div className="relative h-8 w-8 flex-shrink-0">
+              {theme === "dark" ? (
+                <img
+                  src="/white.png"
+                  alt="Vishavjit Singh Logo"
+                  className="h-full w-full object-contain"
+                />
+              ) : (
+                <img
+                  src="/black.png"
+                  alt="Vishavjit Singh Logo"
+                  className="h-full w-full object-contain"
+                />
+              )}
+            </div>
+          )}
           <a
             href="#home"
             className="select-none text-lg sm:text-xl italic font-semibold tracking-wide text-foreground/90 hover:text-primary transition-colors"

@@ -59,19 +59,15 @@ export default function About() {
           >
             <h3 className="text-2xl font-semibold">Professional Journey</h3>
             <p className="text-foreground/80 leading-relaxed">
-              I am a passionate developer with a strong foundation in modern web technologies.
+              I am a passionate developer with a keen mineset towards learning modern web technologies.
               My journey in tech has been driven by curiosity and a desire to build
               meaningful digital experiences that make a difference.
             </p>
             <p className="text-foreground/80 leading-relaxed">
-              With expertise spanning front-end and back-end development, I specialize in
-              creating responsive, performant, and user-centric applications. I believe in
-              writing clean, maintainable code and staying updated with the latest industry
-              trends.
+              With time, patience and hard work , I specialized in creating responsive, performant, and user-centric applications. I believe in writing clean, maintainable code and staying updated with the latest industry trends.
             </p>
             <p className="text-foreground/80 leading-relaxed">
-              When I am not coding, you will find me exploring new technologies, contributing
-              to open-source projects, or sharing knowledge with the developer community.
+              When I am not coding, you will find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.
             </p>
 
             <motion.a
