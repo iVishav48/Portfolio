@@ -75,7 +75,7 @@ export default function About() {
             </p>
 
             <motion.a
-              href="/Vishavjit Resume.pdf"
+              href="/updated resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}

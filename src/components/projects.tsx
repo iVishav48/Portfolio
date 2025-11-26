@@ -28,6 +28,12 @@ const projects = [
     description: "A document processing pipeline utilizing large language models for intelligent information extraction and semantic analysis. Implements custom fine-tuning of transformer models for domain-specific document understanding tasks.",
     technologies: ["Python","Javascript", "FastAPI" , "LangChain", "OpenAI", "Pinecone"],
     githubUrl: "https://github.com/iVishav48/LLM-Document-parser"
+  },
+    {
+    title: "ML-Based Applicant Prediction Model",
+    description: "Trained multiple machine learning models (Linear Regression, Logistic Regression, Random Forest) to predict applicant outcomes with improved accuracy. Built a production-ready API endpoint and developed a responsive TypeScript-based web interface that displays results with a clean, user-friendly UI.",
+    technologies: ["Python","Javascript", "FastAPI" , "Pandas", "NumPy", "Scikit-learn"],
+    githubUrl: "https://github.com/iVishav48/Job_prediction-ML-model-"
   }
 ];
 
