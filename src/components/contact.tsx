@@ -76,8 +76,8 @@ export default function Contact() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.15,
+        staggerChildren: 0.08,
+        delayChildren: 0.05,
         ease: [0.1, 0.1, 0.25, 1]
       }
     }
@@ -86,7 +86,7 @@ export default function Contact() {
   const headingVariants = {
     hidden: { 
       opacity: 0, 
-      y: 60,
+      y: 40,
       scale: 0.95
     },
     visible: { 
@@ -95,9 +95,9 @@ export default function Contact() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 80,
-        damping: 30,
-        mass: 1,
+        stiffness: 100,
+        damping: 20,
+        mass: 0.8,
         velocity: 0,
         restDelta: 0.001
       }
@@ -107,8 +107,8 @@ export default function Contact() {
   const leftPanelVariants = {
     hidden: { 
       opacity: 0, 
-      x: -100,
-      rotateY: -15
+      x: -60,
+      rotateY: -10
     },
     visible: { 
       opacity: 1, 
@@ -116,9 +116,9 @@ export default function Contact() {
       rotateY: 0,
       transition: {
         type: "spring",
-        stiffness: 60,
-        damping: 35,
-        mass: 1.2,
+        stiffness: 80,
+        damping: 25,
+        mass: 0.9,
         velocity: 0,
         restDelta: 0.001
       }
@@ -128,8 +128,8 @@ export default function Contact() {
   const rightPanelVariants = {
     hidden: { 
       opacity: 0, 
-      x: 100,
-      rotateY: 15
+      x: 60,
+      rotateY: 10
     },
     visible: { 
       opacity: 1, 
@@ -137,12 +137,12 @@ export default function Contact() {
       rotateY: 0,
       transition: {
         type: "spring",
-        stiffness: 60,
-        damping: 35,
-        mass: 1.2,
+        stiffness: 80,
+        damping: 25,
+        mass: 0.9,
         velocity: 0,
         restDelta: 0.001,
-        delay: 0.05
+        delay: 0.02
       }
     }
   };
@@ -150,8 +150,8 @@ export default function Contact() {
   const cardVariants = {
     hidden: { 
       opacity: 0, 
-      y: 40,
-      scale: 0.9
+      y: 25,
+      scale: 0.92
     },
     visible: { 
       opacity: 1, 
@@ -159,9 +159,9 @@ export default function Contact() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 70,
-        damping: 28,
-        mass: 1,
+        stiffness: 90,
+        damping: 22,
+        mass: 0.8,
         velocity: 0,
         restDelta: 0.001
       }
@@ -171,8 +171,8 @@ export default function Contact() {
   const socialVariants = {
     hidden: { 
       opacity: 0, 
-      y: 25,
-      scale: 0.8
+      y: 15,
+      scale: 0.85
     },
     visible: { 
       opacity: 1, 
@@ -180,9 +180,9 @@ export default function Contact() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 90,
-        damping: 25,
-        mass: 0.8,
+        stiffness: 110,
+        damping: 20,
+        mass: 0.7,
         velocity: 0,
         restDelta: 0.001
       }
@@ -270,7 +270,7 @@ export default function Contact() {
           </h2>
           <motion.p 
             variants={headingVariants}
-            transition={{ delay: 0.05 }}
+            transition={{ delay: 0.02 }}
             className="mx-auto max-w-2xl text-lg text-foreground/70"
           >
             Have a project in mind or just want to chat? Feel free to reach out!
@@ -304,7 +304,7 @@ export default function Contact() {
               </motion.h3>
               <motion.p 
                 variants={cardVariants}
-                transition={{ delay: 0.02 }}
+                transition={{ delay: 0.01 }}
                 className="mb-6 text-sm text-foreground/70"
               >
                 Fill out the form below and I&apos;ll get back to you as soon as possible.
@@ -315,7 +315,7 @@ export default function Contact() {
                 onSubmit={handleSubmit} 
                 className="space-y-5"
               >
-                <motion.div variants={cardVariants} transition={{ delay: 0.01 }}>
+                <motion.div variants={cardVariants}>
                   <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground/80">
                     Name
                   </label>
@@ -331,7 +331,7 @@ export default function Contact() {
                   />
                 </motion.div>
 
-                <motion.div variants={cardVariants} transition={{ delay: 0.02 }}>
+                <motion.div variants={cardVariants}>
                   <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground/80">
                     Email
                   </label>
@@ -347,7 +347,7 @@ export default function Contact() {
                   />
                 </motion.div>
 
-                <motion.div variants={cardVariants} transition={{ delay: 0.03 }}>
+                <motion.div variants={cardVariants}>
                   <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground/80">
                     Message
                   </label>
@@ -365,7 +365,7 @@ export default function Contact() {
 
                 <motion.button
                   variants={cardVariants}
-                  transition={{ delay: 0.04, type: "spring", stiffness: 400, damping: 25 }}
+                  transition={{ delay: 0.02, type: "spring", stiffness: 400, damping: 25 }}
                   type="submit"
                   whileHover={{ scale: status === "loading" ? 1 : 1.03 }}
                   whileTap={{ scale: status === "loading" ? 1 : 0.97 }}
@@ -447,7 +447,7 @@ export default function Contact() {
                 variants={containerVariants}
                 className="space-y-4"
               >
-                <motion.div variants={socialVariants} transition={{ delay: 0.01 }}>
+                <motion.div variants={socialVariants}>
                   <p className="text-sm text-muted-foreground mb-2">Email</p>
                   <a
                     href="mailto:vishav4848@gmail.com"
@@ -456,17 +456,17 @@ export default function Contact() {
                     vishav4848@gmail.com
                   </a>
                 </motion.div>
-                <motion.div variants={socialVariants} transition={{ delay: 0.02 }}>
+                <motion.div variants={socialVariants}>
                   <div className="h-px bg-border/50" />
                 </motion.div>
-                <motion.div variants={socialVariants} transition={{ delay: 0.03 }}>
+                <motion.div variants={socialVariants}>
                   <p className="text-sm text-muted-foreground mb-2">Response Time</p>
                   <p className="font-medium text-foreground">24-48 hours</p>
                 </motion.div>
-                <motion.div variants={socialVariants} transition={{ delay: 0.04 }}>
+                <motion.div variants={socialVariants}>
                   <div className="h-px bg-border/50" />
                 </motion.div>
-                <motion.div variants={socialVariants} transition={{ delay: 0.05 }}>
+                <motion.div variants={socialVariants}>
                   <p className="text-sm text-muted-foreground mb-2">Status</p>
 aa                  <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
@@ -478,7 +478,7 @@ aa                  <div className="flex items-center gap-2">
 
             <motion.div
               variants={cardVariants}
-              transition={{ delay: 0.05 }}
+              transition={{ delay: 0.03 }}
               whileHover={{ 
                 scale: 1.02,
                 y: -4,

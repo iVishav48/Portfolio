@@ -50,10 +50,10 @@ export default function Footer() {
         <div className="grid gap-6 md:grid-cols-2 md:items-start">
           {/* Brand */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="space-y-2"
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-2.5 py-1">
@@ -66,10 +66,10 @@ export default function Footer() {
 
           {/* Social */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
             className="md:ml-auto"
           >
             <h4 className="mb-2 text-xs font-semibold tracking-wide text-foreground/80">Connect</h4>
@@ -85,7 +85,7 @@ export default function Footer() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.05, delay: 0.01 + index * 0.04, type: "spring", stiffness: 600, damping: 20 }}
+                    transition={{ duration: 0.03, delay: 0.005 + index * 0.02, type: "spring", stiffness: 600, damping: 20 }}
                     whileHover={{ scale: 1.1, y: -2, boxShadow: `0 0 20px ${social.glow}` }}
                     whileTap={{ scale: 0.95 }}
                     className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/60 backdrop-blur-sm transition-all duration-100 hover:border-primary/50 hover:bg-primary/10"
@@ -105,20 +105,20 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-border/50 pt-4 md:flex-row">
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.3 }}
             className="text-[12.5px] text-foreground/60"
           >
             © 2025 Vishavjit Singh •  All rights reserved
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.05 }}
+            transition={{ duration: 0.3, delay: 0.02 }}
             className="flex items-center gap-0 text-[11px] text-foreground/60"
           >
             <span className="rounded-full border border-border bg-card/50 px-2 py-0.5">Open to work</span>

@@ -58,8 +58,8 @@ export default function Skills() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
+        staggerChildren: 0.05,
+        delayChildren: 0.1
       }
     }
   };
@@ -67,16 +67,16 @@ export default function Skills() {
   const headingVariants = {
     hidden: { 
       opacity: 0, 
-      y: 50
+      y: 30
     },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 100,
-        damping: 20,
-        duration: 0.8
+        stiffness: 120,
+        damping: 18,
+        duration: 0.5
       }
     }
   };
@@ -84,8 +84,8 @@ export default function Skills() {
   const categoryVariants = {
     hidden: { 
       opacity: 0, 
-      y: 80,
-      scale: 0.9
+      y: 50,
+      scale: 0.92
     },
     visible: { 
       opacity: 1, 
@@ -93,9 +93,9 @@ export default function Skills() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 100,
-        damping: 20,
-        duration: 0.8
+        stiffness: 120,
+        damping: 18,
+        duration: 0.5
       }
     }
   };
@@ -103,8 +103,8 @@ export default function Skills() {
   const skillVariants = {
     hidden: { 
       opacity: 0, 
-      y: 30,
-      rotateX: -15
+      y: 20,
+      rotateX: -10
     },
     visible: { 
       opacity: 1, 
@@ -112,9 +112,9 @@ export default function Skills() {
       rotateX: 0,
       transition: {
         type: "spring",
-        stiffness: 150,
-        damping: 15,
-        duration: 0.6
+        stiffness: 180,
+        damping: 12,
+        duration: 0.4
       }
     }
   };
@@ -144,7 +144,7 @@ export default function Skills() {
             variants={headingVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.1 }}
             className="mx-auto max-w-2xl text-lg text-foreground/70"
           >
             A comprehensive toolkit for building modern, scalable applications

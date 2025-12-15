@@ -55,23 +55,23 @@ export default function Header() {
 
   return (
     <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: isHidden ? -100 : 0, opacity: 1 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: isHidden ? -80 : 0, opacity: 1 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
       className={`fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md transition-[background-color,box-shadow] duration-300 ${
         isScrolled ? "shadow-lg shadow-black/10" : "shadow-none"
       }`}
     >
       <motion.nav
         animate={{ height: isScrolled ? 56 : 72 }}
-        transition={{ duration: 0.25 }}
+        transition={{ duration: 0.2 }}
         className="container mx-auto grid grid-cols-3 items-center px-4 sm:px-6"
         style={{ overflow: "hidden" }}
       >
         {/* Left: Logo + Signature name */}
         <motion.div
-          animate={{ scale: isScrolled ? 0.92 : 1 }}
-          transition={{ duration: 0.2 }}
+          animate={{ scale: isScrolled ? 0.94 : 1 }}
+          transition={{ duration: 0.15 }}
           className="flex items-center gap-0"
         >
           {/* Theme-aware logo */}
@@ -107,9 +107,9 @@ export default function Header() {
             {navLinks.map((link, index) => (
               <motion.li
                 key={link.name}
-                initial={{ opacity: 0, y: -20 }}
+                initial={{ opacity: 0, y: -15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
+                transition={{ delay: 0.05 * index }}
               >
                 <button
                   onClick={() => scrollToSection(link.href)}
@@ -135,9 +135,9 @@ export default function Header() {
           </a>
           {mounted && (
             <motion.button
-              initial={{ opacity: 0, scale: 0.5 }}
+              initial={{ opacity: 0, scale: 0.6 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.2 }}
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="rounded-full border border-border/50 p-2 transition-all hover:border-primary/50 hover:bg-primary/10"
               aria-label="Toggle theme"
@@ -166,14 +166,14 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.15 }}
+            transition={{ duration: 0.1 }}
             className="md:hidden"
           >
             <motion.div
-              initial={{ y: -20, opacity: 0 }}
+              initial={{ y: -15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              exit={{ y: -15, opacity: 0 }}
+              transition={{ duration: 0.15 }}
               className="container mx-auto px-4 pb-4"
             >
               <div className="rounded-2xl border border-border/50 bg-background/95 p-4 backdrop-blur-sm shadow-lg">

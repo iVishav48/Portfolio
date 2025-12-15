@@ -30,16 +30,16 @@ export default function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:pl-16">
           {/* Left side - Text content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="text-center lg:text-left lg:pl-8"
           >
             <motion.h1
               className="mb-8 pb-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-snug sm:whitespace-nowrap"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
               <ShinyText 
                 text="Vishavjit Singh" 
@@ -51,9 +51,9 @@ export default function Hero() {
 
             <motion.div
               className="mb-6 text-2xl text-foreground/80 md:text-3xl lg:text-4xl"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
               <div className="flex flex-col gap-2">
                 <DecryptedText
@@ -91,18 +91,18 @@ export default function Hero() {
 
             <motion.p
               className="mb-12 text-lg text-foreground/60 md:text-xl lg:text-2xl"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
             >
               Building the future, one line of code at a time
             </motion.p>
 
             <motion.div
               className="flex flex-wrap items-center justify-center gap-4 lg:justify-start"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
               <button
                 onClick={() => scrollToSection("#projects")}
@@ -123,9 +123,9 @@ export default function Hero() {
 
           {/* Right side - Profile picture */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="relative flex justify-center lg:justify-end"
           >
             <div className="relative">
@@ -148,10 +148,10 @@ export default function Hero() {
               {/* Floating elements */}
               <motion.div
                 animate={{
-                  y: [0, -20, 0],
+                  y: [0, -10, 0],
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 2,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -168,11 +168,11 @@ export default function Hero() {
 
         <motion.div
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            duration: 0.8,
-            delay: 0.8,
+            duration: 0.5,
+            delay: 0.4,
             repeat: Infinity,
             repeatType: "reverse",
           }}
