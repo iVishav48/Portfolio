@@ -1,13 +1,13 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import About from "@/components/about";
+import Experience from "@/components/experience";
 import { ClickSparkProvider } from "@/components/providers/click-spark-provider";
 import SocialSidebar from "@/components/ui/social-sidebar";
 import Projects from "@/components/projects";
 import Skills from "@/components/skill";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
-
 
 export default function Home() {
   return (
@@ -22,6 +22,7 @@ export default function Home() {
         <SocialSidebar />
         <Hero />
         <About />
+        <Experience />
         <Projects />
         <Skills />
         <Contact />

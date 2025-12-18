@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Download } from "lucide-react";
 import Image from "next/image";
 import { CometCard } from "@/components/ui/comet-card";
 import ShinyText from "@/components/ui/shiny-text";
@@ -39,7 +39,7 @@ export default function Hero() {
               className="mb-8 pb-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-snug sm:whitespace-nowrap"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.3 }}
             >
               <ShinyText 
                 text="Vishavjit Singh" 
@@ -53,7 +53,7 @@ export default function Hero() {
               className="mb-6 text-2xl text-foreground/80 md:text-3xl lg:text-4xl"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.3, delay: 0.05 }}
             >
               <div className="flex flex-col gap-2">
                 <DecryptedText
@@ -93,7 +93,7 @@ export default function Hero() {
               className="mb-12 text-lg text-foreground/60 md:text-xl lg:text-2xl"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
             >
               Building the future, one line of code at a time
             </motion.p>
@@ -102,15 +102,22 @@ export default function Hero() {
               className="flex flex-wrap items-center justify-center gap-4 lg:justify-start"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.3, delay: 0.15 }}
             >
-              <button
-                onClick={() => scrollToSection("#projects")}
+              <motion.a
+                href="/updated_resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 className="group relative overflow-hidden rounded-full bg-gradient-to-r from-primary to-primary/80 px-8 py-4 font-semibold text-primary-foreground transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/50"
               >
-                <span className="relative z-10">View My Work</span>
+                <span className="relative z-10 flex items-center gap-2">
+                  <Download className="h-5 w-5" />
+                  Resume
+                </span>
                 <div className="absolute inset-0 -z-0 bg-gradient-to-r from-primary/80 to-primary/60 opacity-0 transition-opacity group-hover:opacity-100" />
-              </button>
+              </motion.a>
 
               <button
                 onClick={() => scrollToSection("#contact")}
@@ -125,7 +132,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
             className="relative flex justify-center lg:justify-end"
           >
             <div className="relative">

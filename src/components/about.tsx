@@ -37,7 +37,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="mb-16 text-center"
         >
           <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
@@ -54,7 +54,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.3, delay: 0.05 }}
             className="space-y-6"
           >
             <h3 className="text-2xl font-semibold">Professional Journey</h3>
@@ -70,24 +70,26 @@ export default function About() {
               When I am not coding, you will find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community. I also enjoy improving myself in any way possible and enjoying my hobbies.
             </p>
 
-            <motion.a
-              href="/updated resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={() => {
+                const element = document.querySelector("#projects");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary/80 px-6 py-3 font-semibold text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/50"
+              className="group relative mt-6 inline-flex items-center gap-2 rounded-full border-2 border-primary/50 px-6 py-3 font-semibold text-foreground transition-all hover:scale-105 hover:border-primary hover:bg-primary/10"
             >
-              <Download className="h-5 w-5" />
-              Resume
+              View My Work
               <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-primary/80 to-primary/60 opacity-0 transition-opacity group-hover:opacity-100" />
-            </motion.a>
+            </motion.button>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
             className="space-y-6"
           >
             <h3 className="text-2xl font-semibold">What I Bring</h3>

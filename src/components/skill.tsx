@@ -59,7 +59,7 @@ export default function Skills() {
       opacity: 1,
       transition: {
         staggerChildren: 0.05,
-        delayChildren: 0.1
+        delayChildren: 0.05
       }
     }
   };
@@ -74,9 +74,9 @@ export default function Skills() {
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 120,
-        damping: 18,
-        duration: 0.5
+        stiffness: 200,
+        damping: 20,
+        duration: 0.3
       }
     }
   };
@@ -93,9 +93,9 @@ export default function Skills() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 120,
-        damping: 18,
-        duration: 0.5
+        stiffness: 200,
+        damping: 20,
+        duration: 0.3
       }
     }
   };
@@ -103,18 +103,16 @@ export default function Skills() {
   const skillVariants = {
     hidden: { 
       opacity: 0, 
-      y: 20,
-      rotateX: -10
+      y: 20
     },
     visible: { 
       opacity: 1, 
       y: 0,
-      rotateX: 0,
       transition: {
         type: "spring",
-        stiffness: 180,
-        damping: 12,
-        duration: 0.4
+        stiffness: 250,
+        damping: 15,
+        duration: 0.2
       }
     }
   };
@@ -144,7 +142,7 @@ export default function Skills() {
             variants={headingVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.02 }}
             className="mx-auto max-w-2xl text-lg text-foreground/70"
           >
             A comprehensive toolkit for building modern, scalable applications
@@ -171,18 +169,8 @@ export default function Skills() {
                   mass: 0.5
                 }
               }}
-              whileTap={{ 
-                scale: 0.98,
-                transition: {
-                  type: "spring",
-                  stiffness: 600,
-                  damping: 30
-                }
-              }}
               className="group relative rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-6 transition-colors duration-200 hover:border-border hover:bg-card/90 shadow-lg"
             >
-              {/* Glow Effect */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-slate-500/20 via-gray-500/30 to-slate-500/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 -z-10" />
               
               <div className="relative z-10">
                 <motion.h3 
@@ -209,18 +197,8 @@ export default function Skills() {
                           mass: 0.5
                         }
                       }}
-                      whileTap={{ 
-                        scale: 0.95,
-                        transition: {
-                          type: "spring",
-                          stiffness: 600,
-                          damping: 30
-                        }
-                      }}
                       className="group/skill relative rounded-2xl border border-border bg-card/50 p-4 backdrop-blur-sm transition-colors duration-200 hover:border-primary/50 hover:bg-primary/10 cursor-pointer"
                     >
-                      {/* Skill Glow Effect */}
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-slate-400/10 via-gray-400/20 to-slate-400/10 rounded-2xl opacity-0 group-hover/skill:opacity-100 blur-lg transition-opacity duration-300 -z-10" />
                       
                       <div className="relative z-10 flex flex-col">
                         <span className="text-foreground font-semibold text-base whitespace-nowrap">

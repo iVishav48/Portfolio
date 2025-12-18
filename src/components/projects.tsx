@@ -12,10 +12,10 @@ const projects = [
     githubUrl: "https://github.com/iVishav48/Seeq"
   },
   {
-    title: "PWapp",
-    description: "A progressive web application implementing advanced client-side encryption for secure password management. Features zero-knowledge architecture, biometric authentication, and cross-device synchronization with end-to-end encryption.",
-    technologies: ["Javascript", "React", "MongoDB", "IndexedDB", "JWT"],
-    githubUrl: "https://github.com/iVishav48/PWapp"
+    title: "ML-Based Applicant Prediction Model",
+    description: "Trained multiple machine learning models (Linear Regression, Logistic Regression, Random Forest) to predict applicant outcomes with improved accuracy. Built a production-ready API endpoint and developed a responsive TypeScript-based web interface that displays results with a clean, user-friendly UI.",
+    technologies: ["Python","Javascript", "FastAPI" , "Pandas", "NumPy", "Scikit-learn"],
+    githubUrl: "https://github.com/iVishav48/Job_prediction-ML-model-"
   },
   {
     title: "InSight",
@@ -30,10 +30,10 @@ const projects = [
     githubUrl: "https://github.com/iVishav48/LLM-Document-parser"
   },
     {
-    title: "ML-Based Applicant Prediction Model",
-    description: "Trained multiple machine learning models (Linear Regression, Logistic Regression, Random Forest) to predict applicant outcomes with improved accuracy. Built a production-ready API endpoint and developed a responsive TypeScript-based web interface that displays results with a clean, user-friendly UI.",
-    technologies: ["Python","Javascript", "FastAPI" , "Pandas", "NumPy", "Scikit-learn"],
-    githubUrl: "https://github.com/iVishav48/Job_prediction-ML-model-"
+    title: "PWapp",
+    description: "A progressive web application implementing advanced client-side encryption for secure password management. Features zero-knowledge architecture, biometric authentication, and cross-device synchronization with end-to-end encryption.",
+    technologies: ["Javascript", "React", "MongoDB", "IndexedDB", "JWT"],
+    githubUrl: "https://github.com/iVishav48/PWapp"
   }
 ];
 
@@ -51,7 +51,7 @@ export default function Projects() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="mb-16 text-center"
         >
           <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
@@ -72,11 +72,11 @@ export default function Projects() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ 
-                duration: 0.5, 
-                delay: 0.1 + index * 0.05,
+                duration: 0.3, 
+                delay: 0.05 + index * 0.03,
                 type: "spring",
-                stiffness: 400,
-                damping: 25
+                stiffness: 150,
+                damping: 20
               }}
               whileHover={{ 
                 scale: 1.02,
@@ -85,7 +85,8 @@ export default function Projects() {
                   type: "spring",
                   stiffness: 400,
                   damping: 25,
-                  mass: 0.5
+                  mass: 0.2,
+                  duration: 0.1
                 }
               }}
               whileTap={{ 

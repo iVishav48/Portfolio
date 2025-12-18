@@ -76,7 +76,7 @@ export default function Contact() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
+        staggerChildren: 0.05,
         delayChildren: 0.05,
         ease: [0.1, 0.1, 0.25, 1]
       }
@@ -95,11 +95,9 @@ export default function Contact() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 100,
+        stiffness: 150,
         damping: 20,
-        mass: 0.8,
-        velocity: 0,
-        restDelta: 0.001
+        mass: 0.8
       }
     }
   };
@@ -107,8 +105,8 @@ export default function Contact() {
   const leftPanelVariants = {
     hidden: { 
       opacity: 0, 
-      x: -60,
-      rotateY: -10
+      x: -40,
+      rotateY: -5
     },
     visible: { 
       opacity: 1, 
@@ -116,11 +114,9 @@ export default function Contact() {
       rotateY: 0,
       transition: {
         type: "spring",
-        stiffness: 80,
-        damping: 25,
-        mass: 0.9,
-        velocity: 0,
-        restDelta: 0.001
+        stiffness: 150,
+        damping: 20,
+        mass: 0.8
       }
     }
   };
@@ -128,8 +124,8 @@ export default function Contact() {
   const rightPanelVariants = {
     hidden: { 
       opacity: 0, 
-      x: 60,
-      rotateY: 10
+      x: 40,
+      rotateY: 5
     },
     visible: { 
       opacity: 1, 
@@ -137,12 +133,10 @@ export default function Contact() {
       rotateY: 0,
       transition: {
         type: "spring",
-        stiffness: 80,
-        damping: 25,
-        mass: 0.9,
-        velocity: 0,
-        restDelta: 0.001,
-        delay: 0.02
+        stiffness: 150,
+        damping: 20,
+        mass: 0.8,
+        delay: 0.03
       }
     }
   };
@@ -159,11 +153,9 @@ export default function Contact() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 90,
+        stiffness: 130,
         damping: 22,
-        mass: 0.8,
-        velocity: 0,
-        restDelta: 0.001
+        mass: 0.8
       }
     }
   };
@@ -180,11 +172,9 @@ export default function Contact() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 110,
+        stiffness: 150,
         damping: 20,
-        mass: 0.7,
-        velocity: 0,
-        restDelta: 0.001
+        mass: 0.7
       }
     }
   };
@@ -270,7 +260,7 @@ export default function Contact() {
           </h2>
           <motion.p 
             variants={headingVariants}
-            transition={{ delay: 0.02 }}
+            transition={{ delay: 0.005 }}
             className="mx-auto max-w-2xl text-lg text-foreground/70"
           >
             Have a project in mind or just want to chat? Feel free to reach out!
@@ -304,7 +294,7 @@ export default function Contact() {
               </motion.h3>
               <motion.p 
                 variants={cardVariants}
-                transition={{ delay: 0.01 }}
+                transition={{ delay: 0.003 }}
                 className="mb-6 text-sm text-foreground/70"
               >
                 Fill out the form below and I&apos;ll get back to you as soon as possible.
@@ -365,7 +355,7 @@ export default function Contact() {
 
                 <motion.button
                   variants={cardVariants}
-                  transition={{ delay: 0.02, type: "spring", stiffness: 400, damping: 25 }}
+                  transition={{ delay: 0.005, type: "spring", stiffness: 400, damping: 25 }}
                   type="submit"
                   whileHover={{ scale: status === "loading" ? 1 : 1.03 }}
                   whileTap={{ scale: status === "loading" ? 1 : 0.97 }}
@@ -478,7 +468,7 @@ aa                  <div className="flex items-center gap-2">
 
             <motion.div
               variants={cardVariants}
-              transition={{ delay: 0.03 }}
+              transition={{ delay: 0.01 }}
               whileHover={{ 
                 scale: 1.02,
                 y: -4,
