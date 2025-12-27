@@ -127,7 +127,7 @@ export default function Header() {
         {/* Right: Resume + Theme toggle + Mobile menu */}
         <div className="ml-auto flex items-center justify-end gap-2 sm:gap-3">
           <a
-            href="/updated_resume.pdf"
+            href="/dataScience.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden rounded-full border border-border/50 px-3 py-1.5 text-sm font-medium text-foreground transition-all hover:border-primary/50 hover:bg-primary/10 md:inline-flex"

@@ -105,7 +105,7 @@ export default function Hero() {
               transition={{ duration: 0.3, delay: 0.15 }}
             >
               <motion.a
-                href="/updated_resume.pdf"
+                href="/dataScience.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
