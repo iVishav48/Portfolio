@@ -16,9 +16,9 @@ const experiences = [
   },
   {
     title: "Data Science Intern",
-    company: "Futereinterns",
+    company: "CodeAlpha",
     location: "Remote",
-    period: "Dec 2025 - present",
+    period: "Jan 2026 - present",
     description: "Worked on real-world data analytics projects involving e-commerce sales analysis, social media campaign performance tracking, and survey-based feedback analysis. Built interactive dashboards, performed data cleaning and trend analysis, applied marketing analytics and NLP-based sentiment analysis, and delivered actionable insights to support data-driven decision-making.",
     technologies: ["Power BI", "Python", "Seaborn", "Pandas", "NLP"]
   },
