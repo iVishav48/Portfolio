@@ -41,9 +41,9 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <ShinyText 
-                text="Vishavjit Singh" 
-                disabled={false} 
+              <ShinyText
+                text="Vishavjit Singh"
+                disabled={false}
                 speed={4}
                 className="bg-gradient-to-r from-slate-300 via-gray-600 to-slate-600"
               />
@@ -105,7 +105,7 @@ export default function Hero() {
               transition={{ duration: 0.3, delay: 0.15 }}
             >
               <motion.a
-                href="/dataScience.pdf"
+                href="/my_resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -138,12 +138,12 @@ export default function Hero() {
             <div className="relative">
               {/* Gradient ring effect */}
               <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-primary/30 via-primary/20 to-primary/30 opacity-75 blur-2xl" />
-              
+
               {/* Profile picture with CometCard */}
               <CometCard className="relative rounded-2xl bg-gradient-to-br from-card to-card/80 p-4 shadow-2xl border border-border/50">
                 <div className="relative h-72 w-72 overflow-hidden rounded-xl bg-gradient-to-br from-background/20 to-background/10 md:h-96 md:w-96">
                   <Image
-                    src="/professional_pic.png"
+                    src="/mypic.png"
                     alt="Vishavjit Singh"
                     fill
                     className="object-cover"
